@@ -1,0 +1,361 @@
+<!--2024-02-28-->
+<!--v0.5.0-->
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <!--非表示-->
+    <input type="file" id="file-input-core-1" class="file-input-core hide" accept=".usc" value="1">
+    <input type="file" id="file-input-core-2" class="file-input-core hide" accept=".usc" value="2">
+    <input type="file" id="file-input-core-3" class="file-input-core hide" accept=".usc" value="3">
+    <input type="file" id="file-input-core-4" class="file-input-core hide" accept=".usc" value="4">
+    <input type="file" id="file-input-core-5" class="file-input-core hide" accept=".usc" value="5">
+    <input type="checkbox" id="mirror-input-core" class="hide">
+    <input type="checkbox" id="bend-input-core" class="hide">
+    <input type="checkbox" id="custom-input-core" class="hide">
+    <input type="checkbox" id="fadein-input-core" class="hide">
+    <input type="checkbox" id="fadeout-input-core" class="hide">
+
+    <div id="content" class="flex">
+
+        <!--ツール切り替えボタン-->
+        <div id="sub-left">
+            <div href="#main-batch-conversion" class="function-button selected" value="1">usc一括変換ツール</div>
+            <div href="#main-marger" class="function-button" value="2">usc合成ツール</div>
+            <div href="#main-circle-creator" class="function-button unfinished" value="3">円形作成ツール
+                <i class="bi bi-exclamation-diamond-fill"></i>
+            </div>
+            <div href="#main-split-generator" class="function-button unfinished" value="4">スプリット生成ツール</div>
+        </div>
+
+        <!--usc一括変換ツール-->
+        <div id="main-batch-conversion" class="main">
+            <div id="file-input" class="main-item flex">
+                <div id="file-input-1" class="file-input-button" value="1">uscを選択</div>
+                <div id="file-info-1" class="file-info output">何も選択されていません</div>
+            </div>
+            <div id="file-input-error-1" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">bpm</div>
+                <div class="width-10 red-2">×</div>
+                <div id="bpm-a1" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-5 red-3">/</div>
+                <div id="bpm-a2" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-10 red-2">+</div>
+                <div id="bpm-a3" class="width-10 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 red-3">/</div>
+                <div id="bpm-a4" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="bpm-error-a" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">beat</div>
+                <div class="width-10 red-2">×</div>
+                <div id="beat-a1" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-5 red-3">/</div>
+                <div id="beat-a2" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-10 red-2">+</div>
+                <div id="beat-a3" class="width-10 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 red-3">/</div>
+                <div id="beat-a4" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="beat-error-a" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 blue-1">size</div>
+                <div class="width-10 blue-2">×</div>
+                <div id="size-a1" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-5 blue-3">/</div>
+                <div id="size-a2" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-10 blue-2">+</div>
+                <div id="size-a3" class="width-10 blue-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 blue-3">/</div>
+                <div id="size-a4" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="size-error-a" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 green-1">lane</div>
+                <div class="width-10 green-2">×</div>
+                <div id="lane-a1" class="width-10 green-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-5 green-3">/</div>
+                <div id="lane-a2" class="width-10 green-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-10 green-2">+</div>
+                <div id="lane-a3" class="width-10 green-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 green-3">/</div>
+                <div id="lane-a4" class="width-10 green-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="lane-error-a" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 cyan-1">ミラー</div>
+                <label for="mirror-input-core" class="checkbox width-10 cyan-frame" value="1">
+                    <div id="checkbox-1" class="checkmark checkmark-cyan hide"></div>
+                </label>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 cyan-1">終点タイプ</div>
+                <div id="p-input-1" class="width-60 cyan-3">そのまま</div>
+                <div id="pulldown-button-1" class="pulldown-button width-10 cyan-2" value="1">
+                    <div class="pulldown-mark"></div>
+                </div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 yellow-1">保存名</div>
+                <div id="name-input-1" class="width-60 yellow-3 editable" contenteditable="true" value="sample">sample</div>
+                <div class="width-10 yellow-2">.usc</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div id="download-1" class="download" value="1">uscをダウンロード<i class="bi bi-download"></i></div>
+            </div>
+        </div>
+
+        <!--usc合成ツール-->
+        <div id="main-marger" class="main hide">
+            <div class="main-item flex">
+                <div id="file-input-2" class="file-input-button" value="2">uscを選択</div>
+                <div id="file-info-2" class="file-info output">何も選択されていません</div>
+            </div>
+            <div id="file-input-error-2" class="input-error"></div>
+
+            <div class="main-item flex">
+                <div id="file-input-3" class="file-input-button" value="3">uscを選択</div>
+                <div id="file-info-3" class="file-info output">何も選択されていません</div>
+            </div>
+            <div id="file-input-error-3" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 yellow-1">保存名</div>
+                <div id="name-input-2" class="width-60 yellow-3 editable" contenteditable="true" value="sample">sample</div>
+                <div class="width-10 yellow-2">.usc</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div id="download-2" class="download" value="2">uscをダウンロード<i class="bi bi-download"></i></div>
+            </div>
+        </div>
+
+        <!--円形作成ツール-->
+        <div id="main-circle-creator" class="main hide">
+            <div class="main-item flex t-align">
+                <div class="red-3" style="width: 100%; height: 100%; color: #f00">
+                    <i class="bi bi-exclamation-diamond-fill"></i> このツールは開発が放置されています
+                </div>
+            </div>
+            <div class="input-error"></div>
+
+            <div id="circle-file-input" class="main-item flex">
+                <div id="file-input-4" class="file-input-button" value="4">uscを選択</div>
+                <div id="file-info-4" class="file-info output">何も選択されていません</div>
+            </div>
+            <div id="file-input-error-4" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">beat</div>
+                <div class="width-10 red-2">=</div>
+                <div id="beat-b1" class="width-25 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-10 red-2">+</div>
+                <div id="beat-b2" class="width-10 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 red-3">/</div>
+                <div id="beat-b3" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="beat-error-b" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">length</div>
+                <div class="width-10 red-2">=</div>
+                <div id="leng-b1" class="width-10 red-3 editable" contenteditable="true" value="4">4</div>
+                <div class="width-5 red-3">/</div>
+                <div id="leng-b2" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div id="p-input-2" class="width-25 red-2">分音符</div>
+                <div id="pulldown-button-2" class="pulldown-button width-10 red-2" value="2">
+                    <div class="pulldown-mark"></div>
+                </div>
+            </div>
+            <div id="length-error-b" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 blue-1">size</div>
+                <div class="width-10 blue-2">out</div>
+                <div id="size-b1" class="width-10 blue-3 editable" contenteditable="true" value="6">6</div>
+                <div class="width-5 blue-3">/</div>
+                <div id="size-b2" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-10 blue-2">in</div>
+                <div id="size-b3" class="width-10 blue-3 editable" contenteditable="true" value="4">4</div>
+                <div class="width-5 blue-3">/</div>
+                <div id="size-b4" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="size-error-b" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 green-1">lane</div>
+                <div class="width-10 green-2">=</div>
+                <div id="lane-b1" class="width-25 green-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-10 green-2">+</div>
+                <div id="lane-b2" class="width-10 green-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 green-3">/</div>
+                <div id="lane-b3" class="width-10 green-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="lane-error-b" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 cyan-1">quality</div>
+                <div class="width-10 cyan-2">=</div>
+                <div id="quality-b1" class="width-25 cyan-3 editable" contenteditable="true" value="50">50</div>
+            </div>
+            <div id="quality-error-b" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 purple-1">歪み(ベータ)</div>
+                <label for="bend-input-core" class="checkbox width-10 purple-frame" value="2">
+                    <div id="checkbox-2" class="checkmark checkmark-purple hide"></div>
+                </label>
+                <div style="text-align: left; font-size: 50%; text-indent: 1em;">碌に使えないので触らない方が良い</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 yellow-1">保存名</div>
+                <div id="name-input-3" class="width-60 yellow-3 editable" contenteditable="true" value="sample">sample</div>
+                <div class="width-10 yellow-2">.usc</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div id="download-4" class="download" value="3">uscをダウンロード<i class="bi bi-download"></i></div>
+            </div>
+        </div>
+
+        <!--スプリット生成ツール-->
+        <div id="main-split-generator" class="main hide">
+
+            <div id="file-input" class="main-item flex">
+                <div id="file-input-5" class="file-input-button" value="5">uscを選択</div>
+                <div id="file-info-5" class="file-info output">何も選択されていません</div>
+            </div>
+            <div id="file-input-error-5" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">beat</div>
+                <div class="width-10 red-2">=</div>
+                <div id="beat-c1" class="width-25 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-10 red-2">+</div>
+                <div id="beat-c2" class="width-10 red-3 editable" contenteditable="true" value="0">0</div>
+                <div class="width-5 red-3">/</div>
+                <div id="beat-c3" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+            </div>
+            <div id="beat-error-c" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 red-1">length</div>
+                <div class="width-10 red-2">=</div>
+                <div id="leng-c1" class="width-10 red-3 editable" contenteditable="true" value="4">4</div>
+                <div class="width-5 red-3">/</div>
+                <div id="leng-c2" class="width-10 red-3 editable" contenteditable="true" value="1">1</div>
+                <div id="p-input-3" class="width-25 red-2">分音符</div>
+                <div id="pulldown-button-3" class="pulldown-button width-10 red-2" value="3">
+                    <div class="pulldown-mark"></div>
+                </div>
+            </div>
+            <div id="length-error-c" class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 blue-1">width</div>
+                <div class="width-10 blue-2">=</div>
+                <div id="width-c1" class="width-10 blue-3 editable" contenteditable="true" value="1">1</div>
+                <div class="width-5 blue-3">/</div>
+                <div id="width-c2" class="width-10 blue-3 editable" contenteditable="true" value="10">10</div>
+            </div>
+            <div id="width-error-c" class="input-error"></div>
+
+            <div class="main-item flex">
+                <div class="width-30 green-1 t-align">lane</div>
+                <div href="#3d3" id="p-input-4" class="width-25 green-2 t-align" name="1" style="color: #0a0">green</div>
+                <div id="pulldown-button-4" class="pulldown-button width-10 green-2" value="4">
+                    <div class="pulldown-mark"></div>
+                </div>
+                <div class="width-25 green-3 t-align">カスタム入力</div>
+                <label id="custom-input-type" for="custom-input-core" class="checkbox width-10 green-frame" value="3">
+                    <div id="checkbox-3" class="checkmark checkmark-green hide"></div>
+                </label>
+            </div>
+            <div id="custom-false" class="custom main-item-large flex">
+                <div id="lane-c1" class="width-100 green-3"><!--scriptで生成--></div>
+            </div>
+            <div id="custom-true" class="custom main-item-large flex hide">
+                <div id="lane-c2" class="width-100 green-3 editable color-gray" contenteditable="true">lane値をカンマ区切りで入力(色は選択中の色に統一されます)</div>
+            </div>
+            <div id="width-error-c" class="input-error"></div>
+
+            <div class="main-item flex">
+                <div class="width-30 cyan-1 t-align">fadein</div>
+                <label id="fadein-input" for="fadein-input-core" class="checkbox width-10 cyan-frame" value="4">
+                    <div id="checkbox-4" class="checkmark checkmark-cyan hide"></div>
+                </label>
+                <div id="config-button-4" class="config-button width-25 cyan-a t-align hide" value="1">設定</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div class="width-30 yellow-1">保存名</div>
+                <div id="name-input-4" class="width-60 yellow-3 editable" contenteditable="true" value="sample">sample</div>
+                <div class="width-10 yellow-2">.usc</div>
+            </div>
+            <div class="input-error"></div>
+
+            <div class="main-item flex t-align">
+                <div id="download-5" class="download" value="4">uscをダウンロード<i class="bi bi-download"></i></div>
+            </div>
+        </div>
+
+        <div id="sub-right">
+            <div id="pulldown-1" class="sub-item hide" value="1">
+                <div class="option-1 pulldown-option cyan-3" value="1">そのまま</div>
+                <div class="option-1 pulldown-option cyan-3" value="1">全て通常</div>
+                <div class="option-1 pulldown-option cyan-3" value="1">全てトレース</div>
+                <div class="option-1 pulldown-option cyan-3" value="1">全て削除</div>
+            </div>
+            <div id="pulldown-2" class="sub-item hide" value="2">
+                <div class="option-2 pulldown-option red-2" value="2">分音符</div>
+                <div class="option-2 pulldown-option red-2" value="2">拍</div>
+            </div>
+            <div id="pulldown-3" class="sub-item hide" value="3">
+                <div class="option-3 pulldown-option red-2" value="3">分音符</div>
+                <div class="option-3 pulldown-option red-2" value="3">拍</div>
+            </div>
+            <div id="pulldown-4" class="sub-item hide" value="4">
+                <div href="#3d3" class="option-4 pulldown-option green-2" name="1" value="4"><span style="color: #3d3">green</span></div>
+                <div href="#dd3" class="option-4 pulldown-option green-2" name="2" value="4"><span style="color: #dd3">yellow</span></div>
+                <div href="#d33" class="option-4 pulldown-option green-2" name="3" value="4"><span style="color: #d33">red</span></div>
+                <div href="#33d" class="option-4 pulldown-option green-2" name="4" value="4"><span style="color: #33d">blue</span></div>
+                <div href="#3bb" class="option-4 pulldown-option green-2" name="5" value="4"><span style="color: #3bb">cyan</span></div>
+                <div href="#d3d" class="option-4 pulldown-option green-2" name="6" value="4"><span style="color: #d3d">purple</span></div>
+                <div href="#aaa" class="option-4 pulldown-option green-2" name="7" value="4"><span style="color: #aaa">neutral</span></div>
+                <div href="#000" class="option-4 pulldown-option green-2" name="8" value="4"><span style="color: #000">black</span></div>
+            </div>
+            <div id="config-1" class="sub-item hide">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

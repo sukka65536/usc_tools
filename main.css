@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    width: 1100px;
+    margin: 25px auto;
+}
+
+#main-batch-conversion,
+#main-marger {
+    width: 500px;
+}
+
+#sub-left,
+#sub-right {
+    width: 300px;
+}
+
+.function-button {
+    background-color: #fff;
+    color: #64e;
+    height: 40px;
+    width: 240px;
+    border: 5px solid #64e;
+    cursor: pointer;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.function-button.selected {
+    background-color: #64e;
+    color: #fff;
+}
+
+.main-item {
+    height: 50px;
+    width: 500px;
+}
+
+.main-item-large {
+    height: 75px;
+    width: 500px;
+}
+
+.sub-item {
+    z-index: 20;
+}
+
+.file-input-button {
+    width: 30%;
+    background-color: #77f;
+    color: #fff;
+    cursor: pointer;
+}
+
+.download {
+    width: 100%;
+    background-color: #ccc;
+    color: #000;
+}
+
+.file-input-button,
+.download {
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.can-download {
+    background-color: #77f !important;
+    color: #fff !important;
+    cursor: pointer;
+}
+
+.file-input-button:hover,
+.can-download:hover {
+    background-color: #88f !important;
+}
+
+.file-info {
+    height: 100%;
+    width: 70%;
+    background-color: #ccf;
+    text-indent: 1em;
+    line-height: 50px;
+}
+
+.input-error {
+    height: 25px;
+    width: 500px;
+    color: #f00;
+    text-indent: 150px;
+}
+
+#mirror-input {
+    cursor: pointer;
+}
+
+.checkbox {
+    cursor: pointer;
+}
+
+.checkmark {
+    height: 18px;
+    width: 10px;
+    content: '';
+    top: calc(50% - 15px);
+    left: calc(50% - 7.5px);
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.checkmark-green {
+    border-right: 5px solid #5a5;
+    border-bottom: 5px solid #5a5;
+}
+
+.checkmark-cyan {
+    border-right: 5px solid #5aa;
+    border-bottom: 5px solid #5aa;
+}
+
+.checkmark-purple {
+    border-right: 5px solid #a5a;
+    border-bottom: 5px solid #a5a;
+}
+
+#pulldown-button {
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.pulldown-button:hover .pulldown-mark {
+    top: 20px;
+}
+
+.pulldown-mark {
+    height: 12px;
+    width: 12px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    content: '';
+    display: block;
+    top: 14px;
+    left: 18px;
+    position: relative;
+    transition: top 0.5s ease;
+    transform: rotate(45deg);
+}
+
+#pulldown-1 {
+    width: 100%;
+    position: relative;
+    top: 500px;
+    right: 350px;
+    box-shadow: 0 0 10px 0 #5ff;
+}
+
+#pulldown-2 {
+    top: 275px;
+}
+
+#pulldown-3 {
+    top: 200px;
+}
+
+#pulldown-2,
+#pulldown-3 {
+    width: 125px;
+    position: relative;
+    right: 175px;
+    box-shadow: 0 0 10px 0 #f55;
+}
+
+#pulldown-4 {
+    width: 125px;
+    position: relative;
+    top: 350px;
+    right: 350px;
+    box-shadow: 0 0 10px 0 #5f5;
+}
+
+.pulldown-option {
+    height: 35px;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+}
+
+#lane-ui-select,
+#lane-ui-lane {
+    border-collapse: collapse;
+    margin: 2px auto 0 auto;
+}
+
+.triangle-button {
+    height: 20px;
+    width: 30px;
+    border: 3px solid rgba(0, 0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    color: #afa;
+    line-height: 20px;
+    user-select: none;
+}
+
+.triangle-button:hover {
+    font-size: 130%;
+}
+
+#lane-ui-lane {
+    height: 30px;
+    width: 399px;
+    background-color: #dfd;
+    border-top: 3px solid #afa;
+    border-bottom: 3px solid #afa;
+}
+
+.vertical-line {
+    height: 36px;
+    width: 3px;
+    background-color: #afa;
+    position: relative;
+    bottom: 3px;
+    z-index: 10;
+}
+
+.lane-ui-margin {
+    margin-left: 30px;
+}
+
+#lane-c2 {
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+}
+
+.color-gray {
+    color: #aaa;
+}
+
+.config-button {
+    cursor: pointer;
+}
