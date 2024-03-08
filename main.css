@@ -113,21 +113,6 @@
     transform: rotate(45deg);
 }
 
-.checkmark-green {
-    border-right: 5px solid #5a5;
-    border-bottom: 5px solid #5a5;
-}
-
-.checkmark-cyan {
-    border-right: 5px solid #5aa;
-    border-bottom: 5px solid #5aa;
-}
-
-.checkmark-purple {
-    border-right: 5px solid #a5a;
-    border-bottom: 5px solid #a5a;
-}
-
 #pulldown-button {
     font-size: 150%;
     cursor: pointer;

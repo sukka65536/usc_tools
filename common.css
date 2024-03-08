@@ -43,6 +43,9 @@
     line-height: 50px;
 }
 
+
+/* red */
+
 .red-1 {
     background-color: #f99;
 }
@@ -64,6 +67,9 @@
     background-color: #ffe8e8;
 }
 
+
+/* blue */
+
 .blue-1 {
     background-color: #99f;
 }
@@ -79,6 +85,9 @@
 .editable.blue-3:hover {
     background-color: #e8e8ff;
 }
+
+
+/* green */
 
 .green-1 {
     background-color: #9f9;
@@ -103,6 +112,14 @@
 .option-4.green-2:hover {
     background-color: #9f9;
 }
+
+.checkmark-green {
+    border-right: 5px solid #5a5;
+    border-bottom: 5px solid #5a5;
+}
+
+
+/* cyan */
 
 .cyan-1 {
     background-color: #9ff;
@@ -132,6 +149,14 @@
     box-shadow: inset 0 0 0 5px #5ee;
 }
 
+.checkmark-cyan {
+    border-right: 5px solid #5aa;
+    border-bottom: 5px solid #5aa;
+}
+
+
+/* yellow */
+
 .yellow-1 {
     background-color: #ff9;
 }
@@ -143,6 +168,22 @@
 .yellow-3 {
     background-color: #ffd;
 }
+
+.editable.yellow-3:hover {
+    background-color: #ffffe8;
+}
+
+.yellow-frame {
+    box-shadow: inset 0 0 0 5px #ee5;
+}
+
+.checkmark-yellow {
+    border-right: 5px solid #aa5;
+    border-bottom: 5px solid #aa5;
+}
+
+
+/* purple */
 
 .purple-1 {
     background-color: #f9f;
@@ -164,6 +205,7 @@
     box-shadow: inset 0 0 0 5px #e5e;
 }
 
-.editable.yellow-3:hover {
-    background-color: #ffffe8;
+.checkmark-purple {
+    border-right: 5px solid #a5a;
+    border-bottom: 5px solid #a5a;
 }

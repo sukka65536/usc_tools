@@ -32,13 +32,8 @@ $(function () {
             }
         }
         let fileSize = files[0].size, sizeUnit = 'B';
-        if (fileSize >= 1000000) {
-            fileSize = Math.round(fileSize / (2 ** 20) * 100) / 100;
-            sizeUnit = 'MB';
-        } else if (fileSize >= 1000) {
-            fileSize = Math.round(fileSize / (2 ** 10) * 100) / 100;
-            sizeUnit = 'KB';
-        }
+        if (fileSize >= 1000000) { fileSize = Math.round(fileSize / (2 ** 20) * 100) / 100, sizeUnit = 'MB'; }
+        else if (fileSize >= 1000) { fileSize = Math.round(fileSize / (2 ** 10) * 100) / 100, sizeUnit = 'KB'; }
         $('#file-info-' + $(this).attr('value')).text(files[0].name + ' ( ' + fileSize + ' ' + sizeUnit + ' )');
     });
 
@@ -62,6 +57,7 @@ $(function () {
     //チェックボックスのオンオフ
     $('.checkbox').on('click', function () {
         $('#checkbox-' + $(this).attr('value')).toggle();
+        $('.checkbox-' + $(this).attr('value')).toggle();
         if ($(this).attr('value') === '4') $('#config-button-' + $(this).attr('value')).toggle();
     });
 
@@ -161,6 +157,11 @@ function uscBatchConversion(type) {
         generateSplit(data);
         uscOutput = JSON.stringify(data);
     }
+
+    if ($('#indent-input-core').prop('checked')) {
+        const v = [/{/g, /}/g, /\[/g, /\]/g, /:/g, /,/g], r = ['{\n', '\n}', '[\n', '\n]', ': ', ',\n'];
+        for (i = 0; i < v.length; i++) uscOutput = uscOutput.replace(v[i], r[i]);
+    }
 }
 
 //objectsのtype別に分ける
@@ -169,15 +170,17 @@ function objectKeysClassify(data, type, tsgc) {
         case 'bpm': changeObject(data.usc.objects[i], 3, tsgc);
             break;
         case 'timeScaleGroup':
+            changeObject(data.usc.objects[i], 4, tsgc);
+            break;
         case 'single':
         case 'damage':
             changeObject(data.usc.objects[i], type, tsgc);
             break;
         case 'guide':
-            for (j = 0; j < data.usc.objects[i].midpoints.length; j++) { changeObject(data.usc.objects[i].midpoints[j], type, tsgc); }
+            for (j = 0; j < data.usc.objects[i].midpoints.length; j++) changeObject(data.usc.objects[i].midpoints[j], type, tsgc);
             break;
         case 'slide':
-            for (j = 0; j < data.usc.objects[i].connections.length; j++) { changeObject(data.usc.objects[i].connections[j], type, tsgc); }
+            for (j = 0; j < data.usc.objects[i].connections.length; j++) changeObject(data.usc.objects[i].connections[j], type, tsgc);
             break;
         default:
             break;
@@ -213,6 +216,11 @@ function changeObject(obj, type, tsgc) {
             + (Number($('#beat-a3').text()) / Number($('#beat-a4').text()));
         obj.bpm = obj.bpm * (Number($('#bpm-a1').text()) / Number($('#bpm-a2').text()))
             + (Number($('#bpm-a3').text()) / Number($('#bpm-a4').text()));
+    } else if (type === 4) {
+        for (j = 0; j < obj.changes.length; j++) {
+            obj.changes[j].beat = obj.changes[j].beat * (Number($('#beat-a1').text()) / Number($('#beat-a2').text()))
+                + (Number($('#beat-a3').text()) / Number($('#beat-a4').text()));
+        }
     }
 }
 
@@ -339,5 +347,4 @@ function generateSplit(data) {
         }
         data.usc.objects.push(split);
     }
-    console.log(splitProperty);
 }
