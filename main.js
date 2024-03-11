@@ -130,7 +130,7 @@ function uscBatchConversion(type) {
     if (type === '1') {
         let data = JSON.parse(JSON.stringify(uscInput[0]));
         for (i = 0; i < data.usc.objects.length; i++) { objectKeysClassify(data, 1, 0); }
-        uscOutput = JSON.stringify(data);
+        uscOutput = JSON.stringify(data, null, 4);
     }
 
     //usc合成ツール
@@ -158,10 +158,7 @@ function uscBatchConversion(type) {
         uscOutput = JSON.stringify(data);
     }
 
-    if ($('#indent-input-core').prop('checked')) {
-        const v = [/{/g, /}/g, /\[/g, /\]/g, /:/g, /,/g], r = ['{\n', '\n}', '[\n', '\n]', ': ', ',\n'];
-        for (i = 0; i < v.length; i++) uscOutput = uscOutput.replace(v[i], r[i]);
-    }
+    if ($('#indent-input-core').prop('checked')) uscOutput = JSON.stringify(JSON.parse(uscOutput), null, 4);
 }
 
 //objectsのtype別に分ける
